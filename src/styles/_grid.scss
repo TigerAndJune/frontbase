@@ -1,0 +1,48 @@
+// GRID
+// ------------------------------------------------------------
+$totalColumns: 12;
+$columnWidth: 100 / $totalColumns;
+
+$xs: (max:  767px) !default;
+$sm: (min:  768px) !default;
+$md: (min:  992px) !default;
+$lg: (min: 1200px) !default;
+$sm-only: (min: map-get($sm, min), max: map-get($md, min) - 1);
+$md-only: (min: map-get($md, min), max: map-get($lg, min) - 1);
+
+.grid {
+  @extend .cf;
+  max-width: 960px;
+  margin: 0 auto;
+}
+[class*='col-'] {
+  float: left;
+  width: 100%;
+  .blockgrid > & {
+    display: inline-block;
+    float: none;
+  }
+  .pad > & {
+    padding: 10px;
+  }
+}
+
+@for $i from 1 through $totalColumns {
+  .col-#{$i} {
+    width: ($i * $columnWidth) + 0%;
+  }
+}
+@include breakpoint($sm) {
+  @for $i from 1 through $totalColumns {
+    .col-#{$i}--sm {
+      width: ($i * $columnWidth) + 0%;
+    }
+  }
+}
+@include breakpoint($md) {
+  @for $i from 1 through $totalColumns {
+    .col-#{$i}--md {
+      width: ($i * $columnWidth) + 0%;
+    }
+  }
+}

@@ -1,0 +1,27 @@
+// VARIABLES
+$font: sans-serif;
+
+$bg1: #1a1a1a;
+$bg2: #535d6c;
+
+$xs: (max:  767px);
+$sm: (min:  768px);
+$md: (min:  992px);
+$lg: (min: 1200px);
+
+
+// MIXINS
+
+// Simple breakpoint mixin from
+// https://gist.github.com/timknight/b8adb5df5600c37fd567
+@mixin breakpoint($map) {
+  @if map-has-key($map, min) and map-has-key($map, max) {
+    @media screen and (min-width: map-get($map, min)) and (min-width: map-get($map, max)) { @content; }
+  }
+  @elseif map-has-key($map, min) {
+    @media screen and (min-width: map-get($map, min)) { @content; }
+  }
+  @elseif map-has-key($map, max) {
+    @media screen and (min-width: map-get($map, max)) { @content; }
+  }
+}

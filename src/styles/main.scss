@@ -1,0 +1,23 @@
+@import 'settings.scss';
+@import 'grid.scss';
+
+
+// GENERAL
+// ------------------------------------------------------------
+* {
+  box-sizing: border-box;
+}
+body {
+  font-family: $font;
+  font-size: 100%;
+  font-weight: 300;
+  line-height: 1.5;
+}
+.cf:before,
+.cf:after {
+    content: ' ';
+    display: table;
+}
+.cf:after {
+    clear: both;
+}
